@@ -1,0 +1,150 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Base64 Encoder & Decoder — Codoxia</title>
+  <link rel="stylesheet" href="../../css/main.css">
+  <link rel="stylesheet" href="../../css/animations.css">
+  <style>
+    .tool-layout { padding: 40px 0 80px; }
+    .tool-header { margin-bottom: 32px; }
+    .mode-toggle-group {
+      display: flex;
+      gap: 12px;
+      margin-bottom: 24px;
+    }
+    .mode-btn {
+      background: var(--bg-card);
+      border: 1px solid var(--border-subtle);
+      color: var(--text-muted);
+      padding: 10px 20px;
+      border-radius: var(--radius-sm);
+      font-weight: 600;
+      font-size: 0.9rem;
+      cursor: pointer;
+      transition: all var(--transition-fast);
+    }
+    .mode-btn.active, .mode-btn:hover {
+      background: var(--bg-secondary);
+      border-color: var(--text-accent);
+      color: var(--text-main);
+    }
+    .workspace-grid {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 24px;
+    }
+    @media (max-width: 850px) {
+      .workspace-grid { grid-template-columns: 1fr; }
+    }
+    .b64-panel {
+      background: var(--bg-card);
+      border: 1px solid var(--border-subtle);
+      border-radius: var(--radius-lg);
+      padding: 24px;
+      display: flex;
+      flex-direction: column;
+      gap: 16px;
+    }
+    .panel-header {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+    }
+    .panel-title {
+      font-weight: 700;
+      font-size: 1rem;
+    }
+    .b64-textarea {
+      width: 100%;
+      height: 320px;
+      background: var(--bg-primary);
+      border: 1px solid var(--border-subtle);
+      border-radius: var(--radius-sm);
+      padding: 16px;
+      color: var(--text-main);
+      font-family: var(--font-mono);
+      font-size: 0.9rem;
+      outline: none;
+      resize: vertical;
+      line-height: 1.5;
+    }
+    .status-badge {
+      font-family: var(--font-mono);
+      font-size: 0.75rem;
+      padding: 4px 10px;
+      border-radius: 4px;
+    }
+    .status-ok { color: var(--accent-emerald); background: rgba(16, 185, 129, 0.1); }
+    .status-err { color: var(--accent-rose); background: rgba(244, 63, 94, 0.1); }
+  </style>
+</head>
+<body>
+
+  <!-- Navigation Bar -->
+  <header class="site-header">
+    <div class="container header-container">
+      <a href="../../index.html" class="brand-logo">
+        <img src="../../assets/images/logo.png" alt="Codoxia Logo" class="logo-img">
+      </a>
+      <nav class="nav-links">
+        <a href="../../index.html" class="nav-link">Home</a>
+        <a href="../challenges/index.html" class="nav-link">Challenges</a>
+        <a href="index.html" class="nav-link active">Tools</a>
+        <a href="../profile/index.html" class="nav-link">Profile</a>
+      </nav>
+      <div class="auth-buttons">
+        <a href="../auth/login.html" class="btn btn-secondary btn-interactive">Sign In</a>
+        <a href="../auth/signup.html" class="btn btn-primary btn-interactive">Get Started</a>
+      </div>
+    </div>
+  </header>
+
+  <!-- Main Tool Workspace -->
+  <main class="container tool-layout">
+    <div class="tool-header">
+      <h1 class="hero-title" style="font-size: 2.2rem; text-align: left; margin-bottom: 8px;">Base64 Encoder & Decoder</h1>
+      <p style="color: var(--text-muted);">Convert plain text to Base64 format and decode encoded payloads securely in your browser.</p>
+    </div>
+
+    <!-- Mode Selector Controls -->
+    <div class="mode-toggle-group">
+      <button id="btnModeEncode" class="mode-btn active">Encode Mode</button>
+      <button id="btnModeDecode" class="mode-btn">Decode Mode</button>
+    </div>
+
+    <div class="workspace-grid">
+      <!-- Input Side -->
+      <div class="b64-panel hover-lift">
+        <div class="panel-header">
+          <span id="inputLabel" class="panel-title">Plain Text Input</span>
+          <span id="b64Status" class="status-badge status-ok">READY</span>
+        </div>
+        <textarea id="b64Input" class="b64-textarea input-glow" placeholder="Type or paste text to process..."></textarea>
+      </div>
+
+      <!-- Output Side -->
+      <div class="b64-panel hover-lift">
+        <div class="panel-header">
+          <span id="outputLabel" class="panel-title">Base64 Encoded Result</span>
+          <button id="btnCopyB64" class="btn btn-secondary btn-interactive" style="padding: 4px 12px; font-size: 0.8rem;">Copy Result</button>
+        </div>
+        <textarea id="b64Output" class="b64-textarea" readonly placeholder="Result will generate automatically..."></textarea>
+      </div>
+    </div>
+  </main>
+
+  <!-- Footer -->
+  <footer class="site-footer">
+    <div class="container footer-container">
+      <p>© 2026 Codoxia. All rights reserved.</p>
+      <p class="footer-credit">Developed & Maintained by <strong>Akarsh</strong> (<a href="mailto:akarshtyagi08@gmail.com">akarshtyagi08@gmail.com</a>)</p>
+    </div>
+  </footer>
+
+  <script src="../../js/animations.js"></script>
+  <script src="../../js/modules/base64.js"></script>
+  <script src="../../js/app.js"></script>
+</body>
+</html>

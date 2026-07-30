@@ -1,0 +1,105 @@
+/* CODOXIA - Micro-Interactions & Animation Engine */
+
+/* Fade & Slide Up Entry */
+@keyframes fadeInUp {
+  from {
+    opacity: 0;
+    transform: translateY(20px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+.animate-fade-in {
+  animation: fadeInUp 0.6s cubic-bezier(0.16, 1, 0.3, 1) forwards;
+}
+
+/* Button Pulse Interaction */
+.btn-interactive {
+  transition: transform var(--transition-fast), background-color var(--transition-fast), border-color var(--transition-fast);
+  cursor: pointer;
+}
+.btn-interactive:active {
+  transform: scale(0.97);
+}
+
+/* Hover Lift Effect */
+.hover-lift {
+  transition: transform var(--transition-smooth), border-color var(--transition-smooth);
+}
+.hover-lift:hover {
+  transform: translateY(-4px);
+  border-color: var(--border-active);
+}
+
+/* --- LIGHT & DARK THEME SWITCHING TOKENS --- */
+[data-theme="light"] {
+  --bg-primary: #f8fafc;
+  --bg-secondary: #f1f5f9;
+  --bg-card: #ffffff;
+  --border-subtle: rgba(0, 0, 0, 0.08);
+  --border-active: rgba(0, 0, 0, 0.25);
+  
+  --text-main: #0f172a;
+  --text-muted: #64748b;
+  --text-accent: #0284c7;
+}
+
+/* --- GLASSMORPHISM & SHADOW ENGINE --- */
+.glass-panel {
+  background: rgba(24, 29, 40, 0.7);
+  backdrop-filter: blur(16px);
+  -webkit-backdrop-filter: blur(16px);
+  border: 1px solid var(--border-subtle);
+}
+
+/* --- GLOW & FOCUS MICRO-INTERACTIONS --- */
+.input-glow {
+  transition: border-color var(--transition-fast), box-shadow var(--transition-fast);
+}
+.input-glow:focus {
+  border-color: var(--text-accent);
+  box-shadow: 0 0 12px rgba(56, 189, 248, 0.25);
+}
+
+/* --- FLOATING ANIMATION --- */
+@keyframes floatAnimation {
+  0%, 100% { transform: translateY(0px); }
+  50% { transform: translateY(-8px); }
+}
+
+.animate-float {
+  animation: floatAnimation 4s ease-in-out infinite;
+}
+
+/* --- SKELETON LOADING PULSE --- */
+@keyframes skeletonPulse {
+  0% { opacity: 0.4; }
+  50% { opacity: 0.8; }
+  100% { opacity: 0.4; }
+}
+
+.skeleton-loader {
+  animation: skeletonPulse 1.5s ease-in-out infinite;
+  background: var(--border-subtle);
+  border-radius: var(--radius-sm);
+}
+
+/* --- BUTTON RIPPLE EFFECT --- */
+.ripple-effect {
+  position: absolute;
+  border-radius: 50%;
+  background: rgba(255, 255, 255, 0.3);
+  transform: scale(0);
+  animation: ripple 0.6s linear;
+  pointer-events: none;
+}
+
+@keyframes ripple {
+  to {
+    transform: scale(4);
+    opacity: 0;
+  }
+}

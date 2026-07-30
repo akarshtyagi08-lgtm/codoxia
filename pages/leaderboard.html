@@ -1,0 +1,244 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Global Leaderboard — Codoxia</title>
+  <link rel="stylesheet" href="../css/main.css">
+  <link rel="stylesheet" href="../css/animations.css">
+  <style>
+    .leaderboard-hero {
+      padding: 60px 0 40px;
+      border-bottom: 1px solid var(--border-subtle);
+      background: var(--bg-secondary);
+    }
+    .podium-grid {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 24px;
+      margin: 40px 0 60px;
+      align-items: flex-end;
+    }
+    @media (max-width: 800px) {
+      .podium-grid { grid-template-columns: 1fr; }
+    }
+    .podium-card {
+      background: var(--bg-card);
+      border: 1px solid var(--border-subtle);
+      border-radius: var(--radius-lg);
+      padding: 32px 24px;
+      text-align: center;
+      position: relative;
+    }
+    .podium-rank-1 {
+      border-color: var(--accent-gold);
+      box-shadow: 0 0 24px rgba(229, 192, 123, 0.15);
+      transform: translateY(-12px);
+    }
+    .podium-badge {
+      width: 48px;
+      height: 48px;
+      border-radius: 50%;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-weight: 800;
+      font-size: 1.2rem;
+      margin: 0 auto 16px;
+      font-family: var(--font-mono);
+    }
+    .rank-1-badge { background: rgba(229, 192, 123, 0.2); color: var(--accent-gold); border: 1px solid var(--accent-gold); }
+    .rank-2-badge { background: rgba(148, 163, 184, 0.2); color: var(--text-main); border: 1px solid var(--border-subtle); }
+    .rank-3-badge { background: rgba(217, 119, 6, 0.2); color: #d97706; border: 1px solid #d97706; }
+
+    .leaderboard-table {
+      width: 100%;
+      border-collapse: separate;
+      border-spacing: 0 8px;
+      margin-bottom: 80px;
+    }
+    .leaderboard-table th {
+      text-align: left;
+      padding: 12px 20px;
+      color: var(--text-muted);
+      font-size: 0.85rem;
+      text-transform: uppercase;
+      letter-spacing: 0.5px;
+      border-bottom: 1px solid var(--border-subtle);
+    }
+    .leaderboard-row {
+      background: var(--bg-card);
+      border: 1px solid var(--border-subtle);
+      transition: transform var(--transition-fast), border-color var(--transition-fast);
+    }
+    .leaderboard-row:hover {
+      border-color: var(--text-accent);
+      transform: translateY(-2px);
+    }
+    .leaderboard-row td {
+      padding: 16px 20px;
+      font-size: 0.95rem;
+    }
+    .leaderboard-row td:first-child {
+      border-top-left-radius: var(--radius-sm);
+      border-bottom-left-radius: var(--radius-sm);
+      font-family: var(--font-mono);
+      font-weight: 700;
+    }
+    .leaderboard-row td:last-child {
+      border-top-right-radius: var(--radius-sm);
+      border-bottom-right-radius: var(--radius-sm);
+    }
+    .user-cell {
+      display: flex;
+      align-items: center;
+      gap: 12px;
+      font-weight: 600;
+    }
+    .user-avatar-mini {
+      width: 32px;
+      height: 32px;
+      border-radius: 50%;
+      background: var(--bg-secondary);
+      border: 1px solid var(--border-subtle);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-size: 0.75rem;
+      font-weight: 700;
+    }
+  </style>
+</head>
+<body>
+
+  <!-- Navigation Bar -->
+  <header class="site-header">
+    <div class="container header-container">
+      <a href="../index.html" class="brand-logo">
+        <img src="../assets/images/logo.png" alt="Codoxia Logo" class="logo-img">
+      </a>
+      <nav class="nav-links">
+        <a href="../index.html" class="nav-link">Home</a>
+        <a href="challenges/index.html" class="nav-link">Challenges</a>
+        <a href="tools/index.html" class="nav-link">Tools</a>
+        <a href="profile/index.html" class="nav-link">Profile</a>
+      </nav>
+      <div class="auth-buttons">
+        <a href="auth/login.html" class="btn btn-secondary btn-interactive">Sign In</a>
+        <a href="auth/signup.html" class="btn btn-primary btn-interactive">Get Started</a>
+      </div>
+    </div>
+  </header>
+
+  <!-- Hero Header -->
+  <div class="leaderboard-hero">
+    <div class="container">
+      <h1 class="hero-title" style="font-size: 2.5rem; text-align: left; margin-bottom: 8px;">Global Leaderboard</h1>
+      <p style="color: var(--text-muted);">Top algorithmic problem solvers ranked by submission accuracy, speed, and weekly challenge output.</p>
+    </div>
+  </div>
+
+  <main class="container">
+    <!-- Top 3 Podium Cards -->
+    <div class="podium-grid">
+      <!-- Rank 2 -->
+      <div class="podium-card hover-lift">
+        <div class="podium-badge rank-2-badge">2</div>
+        <h3 style="font-size: 1.2rem; margin-bottom: 4px;">Elena Rostova</h3>
+        <p style="color: var(--text-muted); font-size: 0.85rem; margin-bottom: 12px;">C++ Specialist</p>
+        <span style="font-family: var(--font-mono); font-weight: 800; color: var(--text-main); font-size: 1.4rem;">2,840 pts</span>
+      </div>
+
+      <!-- Rank 1 -->
+      <div class="podium-card podium-rank-1 hover-lift">
+        <div class="podium-badge rank-1-badge">👑 1</div>
+        <h3 style="font-size: 1.3rem; margin-bottom: 4px;">Akarsh Tyagi</h3>
+        <p style="color: var(--text-accent); font-size: 0.85rem; margin-bottom: 12px; font-weight: 600;">System Architect</p>
+        <span style="font-family: var(--font-mono); font-weight: 800; color: var(--accent-gold); font-size: 1.6rem;">3,120 pts</span>
+      </div>
+
+      <!-- Rank 3 -->
+      <div class="podium-card hover-lift">
+        <div class="podium-badge rank-3-badge">3</div>
+        <h3 style="font-size: 1.2rem; margin-bottom: 4px;">David Chen</h3>
+        <p style="color: var(--text-muted); font-size: 0.85rem; margin-bottom: 12px;">Python Engineer</p>
+        <span style="font-family: var(--font-mono); font-weight: 800; color: var(--text-main); font-size: 1.4rem;">2,610 pts</span>
+      </div>
+    </div>
+
+    <!-- Full Leaderboard Table -->
+    <table class="leaderboard-table">
+      <thead>
+        <tr>
+          <th>Rank</th>
+          <th>Developer</th>
+          <th>Solved</th>
+          <th>Accuracy</th>
+          <th>Points</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr class="leaderboard-row">
+          <td style="color: var(--accent-gold);">#01</td>
+          <td>
+            <div class="user-cell">
+              <div class="user-avatar-mini" style="border-color: var(--accent-gold);">AT</div>
+              <span>Akarsh Tyagi</span>
+            </div>
+          </td>
+          <td style="font-family: var(--font-mono);">48</td>
+          <td style="color: var(--accent-emerald); font-family: var(--font-mono);">98.4%</td>
+          <td style="font-family: var(--font-mono); font-weight: 700;">3,120</td>
+        </tr>
+        <tr class="leaderboard-row">
+          <td style="color: var(--text-muted);">#02</td>
+          <td>
+            <div class="user-cell">
+              <div class="user-avatar-mini">ER</div>
+              <span>Elena Rostova</span>
+            </div>
+          </td>
+          <td style="font-family: var(--font-mono);">44</td>
+          <td style="color: var(--accent-emerald); font-family: var(--font-mono);">96.1%</td>
+          <td style="font-family: var(--font-mono); font-weight: 700;">2,840</td>
+        </tr>
+        <tr class="leaderboard-row">
+          <td style="color: var(--text-muted);">#03</td>
+          <td>
+            <div class="user-cell">
+              <div class="user-avatar-mini">DC</div>
+              <span>David Chen</span>
+            </div>
+          </td>
+          <td style="font-family: var(--font-mono);">41</td>
+          <td style="color: var(--accent-emerald); font-family: var(--font-mono);">94.8%</td>
+          <td style="font-family: var(--font-mono); font-weight: 700;">2,610</td>
+        </tr>
+        <tr class="leaderboard-row">
+          <td style="color: var(--text-muted);">#04</td>
+          <td>
+            <div class="user-cell">
+              <div class="user-avatar-mini">SK</div>
+              <span>Siddharth Kumar</span>
+            </div>
+          </td>
+          <td style="font-family: var(--font-mono);">38</td>
+          <td style="color: var(--accent-emerald); font-family: var(--font-mono);">92.0%</td>
+          <td style="font-family: var(--font-mono); font-weight: 700;">2,350</td>
+        </tr>
+      </tbody>
+    </table>
+  </main>
+
+  <!-- Footer -->
+  <footer class="site-footer">
+    <div class="container footer-container">
+      <p>© 2026 Codoxia. All rights reserved.</p>
+      <p class="footer-credit">Developed & Maintained by <strong>Akarsh</strong> (<a href="mailto:akarshtyagi08@gmail.com">akarshtyagi08@gmail.com</a>)</p>
+    </div>
+  </footer>
+
+  <script src="../js/animations.js"></script>
+  <script src="../js/app.js"></script>
+</body>
+</html>

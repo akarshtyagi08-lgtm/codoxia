@@ -1,0 +1,190 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Engineering Challenges — Codoxia</title>
+  <link rel="stylesheet" href="../../css/main.css">
+  <link rel="stylesheet" href="../../css/animations.css">
+  <style>
+    .page-header {
+      padding: 60px 0 40px;
+      border-bottom: 1px solid var(--border-subtle);
+      background: var(--bg-secondary);
+    }
+    .filter-bar {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 16px;
+      margin: 32px 0;
+      justify-content: space-between;
+      align-items: center;
+    }
+    .search-box {
+      background: var(--bg-card);
+      border: 1px solid var(--border-subtle);
+      border-radius: var(--radius-sm);
+      padding: 10px 16px;
+      color: var(--text-main);
+      font-size: 0.9rem;
+      width: 100%;
+      max-width: 320px;
+      outline: none;
+      transition: border-color var(--transition-fast);
+    }
+    .search-box:focus {
+      border-color: var(--text-accent);
+    }
+    .filter-tags {
+      display: flex;
+      gap: 8px;
+      flex-wrap: wrap;
+    }
+    .tag-btn {
+      background: var(--bg-card);
+      border: 1px solid var(--border-subtle);
+      color: var(--text-muted);
+      padding: 6px 14px;
+      border-radius: 50px;
+      font-size: 0.85rem;
+      cursor: pointer;
+      transition: all var(--transition-fast);
+    }
+    .tag-btn:hover, .tag-btn.active {
+      color: var(--text-main);
+      border-color: var(--text-accent);
+      background: rgba(56, 189, 248, 0.1);
+    }
+    .challenge-list {
+      display: flex;
+      flex-direction: column;
+      gap: 16px;
+      margin-bottom: 80px;
+    }
+    .challenge-row {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      background: var(--bg-card);
+      border: 1px solid var(--border-subtle);
+      border-radius: var(--radius-md);
+      padding: 20px 24px;
+      text-decoration: none;
+      color: var(--text-main);
+    }
+    .challenge-info h4 {
+      font-size: 1.1rem;
+      margin-bottom: 6px;
+    }
+    .challenge-meta {
+      display: flex;
+      gap: 16px;
+      font-size: 0.85rem;
+      color: var(--text-muted);
+    }
+    .badge-diff {
+      font-family: var(--font-mono);
+      font-size: 0.75rem;
+      padding: 4px 10px;
+      border-radius: 4px;
+      font-weight: 600;
+    }
+    .diff-easy { color: var(--accent-emerald); background: rgba(16, 185, 129, 0.1); }
+    .diff-medium { color: var(--accent-gold); background: rgba(229, 192, 123, 0.1); }
+    .diff-hard { color: var(--accent-rose); background: rgba(244, 63, 94, 0.1); }
+  </style>
+</head>
+<body>
+
+  <!-- Navigation Bar -->
+  <header class="site-header">
+    <div class="container header-container">
+      <a href="../../index.html" class="brand-logo">
+        <img src="../../assets/images/logo.png" alt="Codoxia Logo" class="logo-img">
+      </a>
+      <nav class="nav-links">
+        <a href="../../index.html" class="nav-link">Home</a>
+        <a href="index.html" class="nav-link active">Challenges</a>
+        <a href="../tools/index.html" class="nav-link">Tools</a>
+        <a href="../profile/index.html" class="nav-link">Profile</a>
+      </nav>
+      <div class="auth-buttons">
+        <a href="../auth/login.html" class="btn btn-secondary btn-interactive">Sign In</a>
+        <a href="../auth/signup.html" class="btn btn-primary btn-interactive">Get Started</a>
+      </div>
+    </div>
+  </header>
+
+  <!-- Page Header -->
+  <div class="page-header">
+    <div class="container">
+      <h1 class="hero-title" style="font-size: 2.5rem; text-align: left; margin-bottom: 8px;">Algorithm Arena</h1>
+      <p style="color: var(--text-muted);">Explore weekly algorithmic problems, benchmark your logic, and elevate your coding speed.</p>
+    </div>
+  </div>
+
+  <!-- Content & Filters -->
+  <main class="container">
+    <div class="filter-bar">
+      <input type="text" class="search-box" placeholder="Search challenges by title or tag...">
+      <div class="filter-tags">
+        <button class="tag-btn active">All</button>
+        <button class="tag-btn">Arrays</button>
+        <button class="tag-btn">Strings</button>
+        <button class="tag-btn">Trees</button>
+        <button class="tag-btn">Graphs</button>
+        <button class="tag-btn">Dynamic Programming</button>
+      </div>
+    </div>
+
+    <div class="challenge-list">
+      <!-- Challenge 1 -->
+      <a href="problem.html?id=1" class="challenge-row hover-lift">
+        <div class="challenge-info">
+          <h4>01. Sliding Window Maximum Sum</h4>
+          <div class="challenge-meta">
+            <span>Category: Arrays & Strings</span>
+            <span>Acceptance: 72%</span>
+          </div>
+        </div>
+        <span class="badge-diff diff-easy">EASY</span>
+      </a>
+
+      <!-- Challenge 2 -->
+      <a href="problem.html?id=2" class="challenge-row hover-lift">
+        <div class="challenge-info">
+          <h4>02. Binary Tree Lowest Common Ancestor</h4>
+          <div class="challenge-meta">
+            <span>Category: Trees & Graphs</span>
+            <span>Acceptance: 54%</span>
+          </div>
+        </div>
+        <span class="badge-diff diff-medium">MEDIUM</span>
+      </a>
+
+      <!-- Challenge 3 -->
+      <a href="problem.html?id=3" class="challenge-row hover-lift">
+        <div class="challenge-info">
+          <h4>03. Matrix Shortest Path with Obstacles</h4>
+          <div class="challenge-meta">
+            <span>Category: Dynamic Programming</span>
+            <span>Acceptance: 38%</span>
+          </div>
+        </div>
+        <span class="badge-diff diff-hard">HARD</span>
+      </a>
+    </div>
+  </main>
+
+  <!-- Footer -->
+  <footer class="site-footer">
+    <div class="container footer-container">
+      <p>© 2026 Codoxia. All rights reserved.</p>
+      <p class="footer-credit">Developed & Maintained by <strong>Akarsh</strong> (<a href="mailto:akarshtyagi08@gmail.com">akarshtyagi08@gmail.com</a>)</p>
+    </div>
+  </footer>
+
+  <script src="../../js/animations.js"></script>
+  <script src="../../js/app.js"></script>
+</body>
+</html>

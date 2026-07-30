@@ -1,0 +1,138 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Developer Tools — Codoxia</title>
+  <link rel="stylesheet" href="../../css/main.css">
+  <link rel="stylesheet" href="../../css/animations.css">
+  <style>
+    .page-header {
+      padding: 60px 0 40px;
+      border-bottom: 1px solid var(--border-subtle);
+      background: var(--bg-secondary);
+    }
+    .tools-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+      gap: 24px;
+      padding: 40px 0 80px;
+    }
+    .tool-card {
+      background: var(--bg-card);
+      border: 1px solid var(--border-subtle);
+      border-radius: var(--radius-md);
+      padding: 32px;
+      display: flex;
+      flex-direction: column;
+      justify-content: space-between;
+      text-decoration: none;
+      color: var(--text-main);
+      transition: transform var(--transition-smooth), border-color var(--transition-smooth);
+    }
+    .tool-card:hover {
+      border-color: var(--text-accent);
+      transform: translateY(-4px);
+    }
+    .tool-icon {
+      font-size: 2.2rem;
+      margin-bottom: 16px;
+    }
+    .tool-card h3 {
+      font-size: 1.25rem;
+      margin-bottom: 8px;
+    }
+    .tool-card p {
+      color: var(--text-muted);
+      font-size: 0.9rem;
+      line-height: 1.6;
+      margin-bottom: 20px;
+    }
+    .action-link {
+      font-size: 0.85rem;
+      font-weight: 600;
+      color: var(--text-accent);
+      display: inline-flex;
+      align-items: center;
+      gap: 6px;
+    }
+  </style>
+</head>
+<body>
+
+  <!-- Navigation Bar -->
+  <header class="site-header">
+    <div class="container header-container">
+      <a href="../../index.html" class="brand-logo">
+        <img src="../../assets/images/logo.png" alt="Codoxia Logo" class="logo-img">
+      </a>
+      <nav class="nav-links">
+        <a href="../../index.html" class="nav-link">Home</a>
+        <a href="../challenges/index.html" class="nav-link">Challenges</a>
+        <a href="index.html" class="nav-link active">Tools</a>
+        <a href="../profile/index.html" class="nav-link">Profile</a>
+      </nav>
+      <div class="auth-buttons">
+        <a href="../auth/login.html" class="btn btn-secondary btn-interactive">Sign In</a>
+        <a href="../auth/signup.html" class="btn btn-primary btn-interactive">Get Started</a>
+      </div>
+    </div>
+  </header>
+
+  <!-- Page Header -->
+  <div class="page-header">
+    <div class="container">
+      <h1 class="hero-title" style="font-size: 2.5rem; text-align: left; margin-bottom: 8px;">Developer Suite</h1>
+      <p style="color: var(--text-muted);">In-browser utility tools built for speed, clean debugging, and zero tracking.</p>
+    </div>
+  </div>
+
+  <!-- Tools Grid -->
+  <main class="container">
+    <div class="tools-grid">
+      
+      <!-- Tool 1 -->
+      <a href="json-formatter.html" class="tool-card hover-lift">
+        <div>
+          <div class="tool-icon">🛠️</div>
+          <h3>JSON Formatter & Validator</h3>
+          <p>Prettify, minify, validate syntax, and inspect deeply nested JSON objects instantly.</p>
+        </div>
+        <span class="action-link">Open Tool →</span>
+      </a>
+
+      <!-- Tool 2 -->
+      <a href="regex-tester.html" class="tool-card hover-lift">
+        <div>
+          <div class="tool-icon">🔍</div>
+          <h3>Regex Evaluator</h3>
+          <p>Test regular expressions against real-time text input with live pattern matching.</p>
+        </div>
+        <span class="action-link">Open Tool →</span>
+      </a>
+
+      <!-- Tool 3 -->
+      <a href="base64.html" class="tool-card hover-lift">
+        <div>
+          <div class="tool-icon">🔐</div>
+          <h3>Base64 Encoder / Decoder</h3>
+          <p>Convert raw text and string buffers to Base64 strings safely inside the browser environment.</p>
+        </div>
+        <span class="action-link">Open Tool →</span>
+      </a>
+
+    </div>
+  </main>
+
+  <!-- Footer -->
+  <footer class="site-footer">
+    <div class="container footer-container">
+      <p>© 2026 Codoxia. All rights reserved.</p>
+      <p class="footer-credit">Developed & Maintained by <strong>Akarsh</strong> (<a href="mailto:akarshtyagi08@gmail.com">akarshtyagi08@gmail.com</a>)</p>
+    </div>
+  </footer>
+
+  <script src="../../js/animations.js"></script>
+  <script src="../../js/app.js"></script>
+</body>
+</html>
