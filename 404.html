@@ -3,110 +3,27 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>404 — Page Not Found | Codoxia</title>
-  <link rel="stylesheet" href="css/main.css">
-  <link rel="stylesheet" href="css/animations.css">
-  <style>
-    .error-container {
-      min-height: 80vh;
-      display: flex;
-      flex-direction: column;
-      align-items: center;
-      justify-content: center;
-      text-align: center;
-      position: relative;
-      padding: 40px 20px;
-    }
-    .error-code {
-      font-size: 8rem;
-      font-weight: 900;
-      font-family: var(--font-mono);
-      letter-spacing: -4px;
-      color: var(--text-main);
-      opacity: 0.15;
-      position: absolute;
-      top: 50%;
-      left: 50%;
-      transform: translate(-50%, -50%);
-      user-select: none;
-      pointer-events: none;
-    }
-    .error-card {
-      background: var(--bg-card);
-      border: 1px solid var(--border-subtle);
-      border-radius: var(--radius-lg);
-      padding: 48px;
-      max-width: 520px;
-      width: 100%;
-      position: relative;
-      z-index: 2;
-      backdrop-filter: blur(10px);
-    }
-    .error-tag {
-      font-family: var(--font-mono);
-      font-size: 0.85rem;
-      color: var(--accent-rose);
-      background: rgba(244, 63, 94, 0.1);
-      border: 1px solid rgba(244, 63, 94, 0.2);
-      padding: 4px 12px;
-      border-radius: 50px;
-      display: inline-block;
-      margin-bottom: 20px;
-    }
-    .error-actions {
-      display: flex;
-      gap: 16px;
-      justify-content: center;
-      margin-top: 28px;
-    }
-  </style>
+  <title>404 — Page Not Found</title>
+  <link rel="stylesheet" href="/css/style.css">
 </head>
 <body>
-
-  <!-- Navigation Bar -->
-  <header class="site-header">
-    <div class="container header-container">
-      <a href="index.html" class="brand-logo">
-        <img src="assets/images/logo.png" alt="Codoxia Logo" class="logo-img">
-      </a>
-      <nav class="nav-links">
-        <a href="index.html" class="nav-link">Home</a>
-        <a href="pages/challenges/index.html" class="nav-link">Challenges</a>
-        <a href="pages/tools/index.html" class="nav-link">Tools</a>
-        <a href="pages/profile/index.html" class="nav-link">Profile</a>
-      </nav>
-      <div class="auth-buttons">
-        <a href="pages/auth/login.html" class="btn btn-secondary btn-interactive">Sign In</a>
-        <a href="pages/auth/signup.html" class="btn btn-primary btn-interactive">Get Started</a>
-      </div>
-    </div>
+  <header>
+    <a href="/index.html">
+      <img src="/assets/images/logo.png" alt="Codoxia" class="logo-container">
+    </a>
+    <nav class="nav-links">
+      <a href="/index.html">Home</a>
+      <a href="/pages/challenges.html">Challenges</a>
+      <a href="/pages/tools.html">Tools</a>
+      <a href="/pages/profile.html">Profile</a>
+    </nav>
   </header>
 
-  <!-- Error Content -->
-  <main class="error-container">
-    <div class="error-code">404</div>
-    <div class="error-card hover-lift animate-fade-in">
-      <span class="error-tag">ERR_PAGE_NOT_FOUND</span>
-      <h1 style="font-size: 2rem; margin-bottom: 12px;">Lost in the Codebase?</h1>
-      <p style="color: var(--text-muted); font-size: 0.95rem; line-height: 1.6;">
-        The algorithm or endpoint you are looking for has been moved, refactored, or doesn't exist in our routing table.
-      </p>
-      <div class="error-actions">
-        <a href="index.html" class="btn btn-primary btn-interactive">Back to Home</a>
-        <a href="pages/challenges/index.html" class="btn btn-secondary btn-interactive">View Challenges</a>
-      </div>
-    </div>
+  <main style="text-align: center; padding: 5rem 1.25rem;">
+    <div class="badge">ERR_PAGE_NOT_FOUND</div>
+    <h1 style="font-size: 2.5rem; margin: 1rem 0;">Lost in the Codebase?</h1>
+    <p style="color: var(--text-muted); margin-bottom: 2rem;">The endpoint you are looking for doesn't exist or has been moved.</p>
+    <a href="/index.html" class="btn-primary">Back to Home</a>
   </main>
-
-  <!-- Footer -->
-  <footer class="site-footer">
-    <div class="container footer-container">
-      <p>© 2026 Codoxia. All rights reserved.</p>
-      <p class="footer-credit">Developed & Maintained by <strong>Akarsh</strong> (<a href="mailto:akarshtyagi08@gmail.com">akarshtyagi08@gmail.com</a>)</p>
-    </div>
-  </footer>
-
-  <script src="js/animations.js"></script>
-  <script src="js/app.js"></script>
 </body>
 </html>
